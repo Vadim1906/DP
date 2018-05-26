@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Black_list" representedClassName="Black_list" syncable="YES" codeGenerationType="class">
+        <attribute name="black_list_date_end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="black_list_date_start" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="black_list_reason" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="black_list_user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship5" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName="Comment" syncable="YES" codeGenerationType="class">
+        <attribute name="comment_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="comment_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="comment_recipe_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="comment_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment_user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship" inverseEntity="User" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="relationship2" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Excluded_ingredient" representedClassName="Excluded_ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="excluded_ingredient_user" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="excluded_ingredientsid_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship2" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="favorite_ingredient_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="favorite_recipe_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="favorite_user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship4" inverseEntity="User" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="relationship4" inverseEntity="Recipe" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="relationship1" inverseEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="ingredient_calority" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingredient_carbohydrates" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingredient_fats" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingredient_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingredient_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredient_proteins" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingredient_type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe_composition" inverseName="relationship1" inverseEntity="Recipe_composition" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Favorite" inverseName="relationship2" inverseEntity="Favorite" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="relationship1" inverseEntity="Medicine" syncable="YES"/>
+    </entity>
+    <entity name="Mark" representedClassName="Mark" syncable="YES" codeGenerationType="class">
+        <attribute name="mark" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mark_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mark_recipe_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mark_user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship1" inverseEntity="User" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="relationship1" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+        <attribute name="medicine_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="medicine_ingredient_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="medicine_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medicine_recomendation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medicine_user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship6" inverseEntity="User" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="relationship2" inverseEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
+        <attribute name="recipe_autor" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_calority" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_carbohydrates" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_celebration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_complexity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_cooking_method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_fats" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_mark" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_photo" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_proteins" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_ration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_type_kithen" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationship3" inverseEntity="User" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mark" inverseName="relationship1" inverseEntity="Mark" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="relationship1" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="relationship3" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe_composition" inverseName="relationship" inverseEntity="Recipe_composition" syncable="YES"/>
+        <relationship name="relationship4" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Favorite" inverseName="relationship1" inverseEntity="Favorite" syncable="YES"/>
+    </entity>
+    <entity name="Recipe_composition" representedClassName="Recipe_composition" syncable="YES" codeGenerationType="class">
+        <attribute name="composition_ingredient_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="composition_number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="composition_recipe_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="relationship3" inverseEntity="Recipe" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="relationship" inverseEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <entity name="Search_setting" representedClassName="Search_setting" syncable="YES" codeGenerationType="class">
+        <attribute name="search_celebration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="search_compexity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="search_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="search_photo" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="search_recipe_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="search_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="search_type_kitchen" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="search_user" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="user_id_comment" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="user_id_favorite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="user_login" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_mail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_medicine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_second_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="relationship" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mark" inverseName="relationship" inverseEntity="Mark" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Excluded_ingredient" inverseName="relationship" inverseEntity="Excluded_ingredient" syncable="YES"/>
+        <relationship name="relationship3" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="relationship" inverseEntity="Recipe" syncable="YES"/>
+        <relationship name="relationship4" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Favorite" inverseName="relationship" inverseEntity="Favorite" syncable="YES"/>
+        <relationship name="relationship5" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Black_list" inverseName="relationship" inverseEntity="Black_list" syncable="YES"/>
+        <relationship name="relationship6" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="relationship" inverseEntity="Medicine" syncable="YES"/>
+        <relationship name="relationship7" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="relationship7" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="171" height="298"/>
+        <element name="Comment" positionX="441" positionY="270" width="128" height="148"/>
+        <element name="Mark" positionX="-315" positionY="495" width="128" height="133"/>
+        <element name="Excluded_ingredient" positionX="-81" positionY="398" width="128" height="88"/>
+        <element name="Recipe" positionX="106" positionY="356" width="128" height="373"/>
+        <element name="Recipe_composition" positionX="340" positionY="522" width="128" height="118"/>
+        <element name="Ingredient" positionX="529" positionY="465" width="128" height="193"/>
+        <element name="Favorite" positionX="369" positionY="711" width="128" height="135"/>
+        <element name="Black_list" positionX="-254" positionY="33" width="128" height="120"/>
+        <element name="Medicine" positionX="340" positionY="-6" width="128" height="150"/>
+        <element name="Search_setting" positionX="-297" positionY="252" width="128" height="180"/>
+    </elements>
+</model>
